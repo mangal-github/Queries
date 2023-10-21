@@ -1,0 +1,38 @@
+use joins #schema name;
+select count(cname)as total,city from country group by cname;
+select * from country;
+
+
+select count(cname)as total from country;
+select count(city) as total from country where city="mumbai";
+select count(aname)as total from ani where weight>10;
+select count(aname) as total from ani where weight>5 and weight<50;
+select count(aname) as total from ani where weight between 1 and 10;
+select count(aid)as total from ani where acolor="Black" || acolor="White";
+
+select sum(weight) as sum from ani;
+select sum(weight) as sum from ani where acolor="Black";
+select avg(weight) as average from ani;
+select max(weight) from ani;
+select min(weight) from ani;
+
+#clause 
+select count(cname)as total from country;
+select * from ani group by aname;
+select * from ani;
+select * from ani group by acolor;
+select distinct acolor from ani;
+select distinct aname, acolor from ani;
+select max(weight) from ani where weight not in(select max(weight) from ani);
+select weight from ani order by weight desc limit 0,1;  #highest weight
+select weight from ani order by weight desc limit 1,1;   # second heighest weigth
+select weight from ani order by weight asc limit 0,1;
+select weight from ani order by weight asc limit 1,1;
+select weight from ani order by weight limit 1,1;# without asc prevent ascending bcz order by clause
+update ani set weight=1.2 where  aname="Cat";
+update ani set weight=5.5 where aname="Dog" || aname="Cat";
+
+
+
+
+

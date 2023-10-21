@@ -1,0 +1,46 @@
+﻿create table customer(id int primary key not null, name varchar(50));
+select * from customer;
+
+
+create table temp(
+  custid int ,
+  foreign key(custid) references customer(id));
+
+
+
+select * from temp;
+alter table temp add column custcity varchar(50);
+
+insert into customer values(118, "Dyanesh");
+
+insert into temp values(117 ,"Shyam", "Pune");
+delete from temp where custid=115;
+
+#inner join query
+select * from customer inner join temp on (customer.id=temp.custid);
+select customer.id, name , temp.custname,custcity from customer inner join temp on (customer.id=temp.custid);
+
+#left outer join
+select *from customer left join temp on (customer.id=temp.custid);
+select customer.id, temp.custcity from customer left join temp on (customer.id=temp.custid);
+
+#right join query
+select * from customer right join temp on (customer.id=temp.custid);
+SELECT CUSTOMER.id, name, temp.custcity from customer right join temp on (customer.id=temp.custid);
+
+#full join
+select * from customer left join temp on (customer.id=temp.custid)
+union
+select * from customer right join temp on (customer.id=temp.custid);
+
+
+select customer.id, name, temp.custcity from customer inner join temp on (customer.id=temp.custid) order by custcity ;
+select customer.id, name, temp.custcity from customer inner join temp on (customer.id=temp.custid) group by custcity  desc ;
+
+
+
+
+
+
+
+
